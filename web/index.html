@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wat</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="web/tablestyles.css">
+
+</head>
+
+<body>
+
+<h1>
+<img src="/tmp/marca_celesc.jpeg" width="265" height="105" alt=""/>
+</h1>
+<nav id="menu">
+    <ul>
+        <li><a href="#">Geral</a></li>
+        <li><a href="req">Requisições</a></li>
+        <li><a href="maps">Mapa</a></li>
+    </ul>
+</nav>
+
+<script>
+
+    $.ajax({
+        url: "update",
+        success: function(data) {construirTabela(data);}
+    });
+
+    function construirTabela(dados_texto) {
+        var dados = JSON.parse(dados_texto);
+        for (i = 0; i < dados.length; i++) {
+            var $tr = $("<tr>", {"class": "tr_" + dados[i][3]});
+            var $td_localizacao = $("<td>").text(dados[i][0]);
+            var $td_valor = $("<td>").text(dados[i][1]);
+            var $td_horario = $("<td>").text(dados[i][2]);
+            $tr.append($td_localizacao);
+            $tr.append($td_valor);
+            $tr.append($td_horario);
+
+            $(".dados").append($tr);
+        }
+    }
+</script>
+
+<table class="heavyTable dados">
+    <tr>
+        <th>Unidade consumidora&ensp;&ensp;&ensp;</th>
+        <th>Endereço&ensp;&ensp;&ensp;</th>
+        <th>Risco</th>
+    </tr>
+</table>
+
+</body>
+</html>
