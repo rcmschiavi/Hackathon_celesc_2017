@@ -1,10 +1,29 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background: 	#F0F8FF;
-  font-family: "Open Sans", arial;
+div{
+	margin:auto;
+}
 
+.mapa {
+	width:1000px;
+	height:400px;
+	}
+
+body {
+  background: 	#d6e5ff;
+  font-family: "Open Sans", arial;
+  margin-top:0;
+
+}
+#myProgress {
+    width: 100%;
+    background-color: grey;
+}
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
 }
 #menu ul {
     list-style-type: none;
@@ -29,14 +48,14 @@ body {
 
 /* Change the link color to #111 (black) on hover */
 #menu li a:hover {
-    background-color: #111;
+    background-color: #0E36AE;
 }
 table {
   width: 100%;
   max-width: 1000px;
   height: 320px;
   border-collapse: collapse;
-  border: 1px solid #38678f;
+  border: 1px solid #1E90FF;
   background: white;
 }
 th {
